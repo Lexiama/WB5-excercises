@@ -39,22 +39,30 @@ let courses = [
 
    // When does the PROG200 course start? -find
    
-   const course = courses.find(course => courseStart.CourseId === "PROJ200");
-    const startDate = course.StartDate;
-    console.log(`The PROG200 course starts on ${startDate}.`);
+   //const course = courses.find(course => course.CourseId === "PROG200"); // NOT A COMMENT
+   const startDate = course.StartDate;
+   console.log(`The PROG200 course starts on ${startDate}.`);
+   
 //-----------------------------------------------------------------------------------------------//
 
 // What is the title of the PROJ500 course? -find
-
 const course = courses.find(course => course.CourseId === "PROJ500");
-const Title = course.Title;
-console.log(`The PROJ500 course starts on ${Title}.`);
+const title = course.Title;
+console.log(`The PROJ500 course is titled "${title}".`);
 
+  
 //-----------------------------------------------------------------------------------------------//
 
 // What are the titles of the courses that cost $50 or less? - filter
+const inexpensiveCourses = courses.filter(course => parseFloat(course.Fee) <= 50);
+const titles = inexpensiveCourses.map(course => course.Title);
+console.log("Courses that cost $50 or less:");
+titles.forEach(title => console.log(title));
 
-//const course = courses.filter(course => course.Fee <= 50);
+//-----------------------------------------------------------------------------------------------//
 
 
-// What classes meet in "Classroom 1"? - filter
+// What classes meet in "Classroom 1"? - filterconst classroom1Courses = courses.filter(course => course.Location === "Classroom 1");
+const classroom1Titles = classroom1Courses.map(course => course.Title);
+console.log("Courses that meet in Classroom 1:");
+classroom1Titles.forEach(title => console.log(title));
